@@ -184,6 +184,28 @@ class VimCell {
                 commands.execute('notebook:split-cell-at-cursor');
             });
             lvim.mapCommand('-', 'action', 'splitCell', {}, {extra: 'normal'});
+
+            // my keymap
+            lvim.mapCommand(
+                'H', 'motion', 'moveToFirstNonWhiteSpaceCharacter',
+                {},
+                { context: 'normal' }
+            );
+            lvim.mapCommand(
+                'L', 'motion', 'moveToEol',
+                {},
+                { context: 'normal' }
+            );
+            lvim.mapCommand(
+                'J', 'motion', 'moveByParagraph',
+                { forward: true,toJumplist: true},
+                { context: 'normal' }
+            );
+            lvim.mapCommand(
+                'K', 'motion', 'moveByParagraph',
+                { forward: false,toJumplist: true},
+                { context: 'normal' }
+            );
         }
     }
 
